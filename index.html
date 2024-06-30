@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fazendo teste com o DOM</title>
+
+    <style>
+      html {
+        font-family: sans-serif;
+        box-sizing: border-box;
+        font-size: 62.5%;
+      }
+      .container {
+        text-align: center;
+        width: 80%;
+        margin: 0 auto;
+      }
+
+      .title__1 {
+        width: 80%;
+        margin: 1rem auto;
+        padding: 1rem 0;
+        background-color: lightskyblue;
+        border-radius: 1rem;
+      }
+
+      .input__add {
+        width: 80%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .input__add input {
+        padding: 0.4rem 0 0.4rem 0.4rem;
+        width: 70%;
+        border: 0.2rem solid rgb(156, 179, 255);
+        border-radius: 8rem;
+      }
+
+      .input__add input:hover,
+      input:focus {
+        outline: none;
+      }
+      button {
+        text-align: center;
+        border: none;
+        padding: 0.6rem;
+        background-color: lightskyblue;
+        color: #000;
+        transition: 0.6s;
+        width: 25%;
+        border-radius: 0.5rem;
+      }
+
+      button:hover {
+        background-color: lightslategray;
+        color: #fff;
+      }
+
+      .container__mylist {
+        width: 80%;
+        margin: 0 auto;
+      }
+
+      .container__mylist .list ul {
+        width: 80%;
+        margin: 0 auto;
+        padding: 1rem 0.4rem;
+        font-size: 1.6rem;
+        background-color: lightblue;
+        border-radius: 0.5rem;
+      }
+
+      .list ul li {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .container__mylist .title__2 {
+        font-size: 3rem;
+        width: 80%;
+        margin: 2rem auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="title__1">ToDo List</h1>
+
+      <div class="input__add">
+        <input type="text" name="" id="input-text" />
+        <button>Adicionar</button>
+      </div>
+    </div>
+
+    <div class="container__mylist">
+      <h2 class="title__2">My list:</h2>
+
+      <div class="list" data-list="1">
+        <ul>
+          <li>
+            Fazer o deve de casa
+            <span>X</span>
+          </li>
+        </ul>
+      </div>
+      <div>x</div>
+    </div>
+
+    <script>
+      const button = document.querySelector("button");
+      const inputText = document.querySelector("#input-text");
+
+      button.addEventListener("click", () => {
+        console.log(inputText.value);
+
+        let count = 0;
+
+        function mostrarNumero() {
+          if (count < numbers.length) {
+            let container = document.querySelector(".container");
+            const el = document.createElement("p");
+            el.innerHTML = numbers[count];
+            container.appendChild(el);
+            count++;
+          } else {
+            clearInterval(intervalId); // Para o intervalo após exibir todos os números do array
+          }
+        }
+
+        // Chama a função mostrarNumero a cada 5 segundos (5000 milisegundos)
+        let intervalId = setInterval(mostrarNumero, 5000);
+      });
+    </script>
+  </body>
+</html>
